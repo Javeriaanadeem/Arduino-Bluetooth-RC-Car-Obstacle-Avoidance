@@ -71,7 +71,7 @@ How It Works
 
 The HC-05 module receives commands from the mobile app (Forward, Back, Left, Right, Stop).
 
-The Arduino reads the ultrasonic sensor before moving forward. If the distance is less than 30cm, it automatically stops or avoids the obstacle.
+The Arduino reads the ultrasonic sensor before moving forward. If the distance is less than 20cm, it automatically stops or avoids the obstacle.
 
 The L298N motor driver controls the motors based on the Arduino's signals.
 
