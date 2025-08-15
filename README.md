@@ -1,73 +1,63 @@
-Arduino Bluetooth RC Car with Obstacle Avoidance
+# **Arduino Bluetooth RC Car with Obstacle Avoidance**
 
 This project is an Arduino-based Bluetooth-controlled RC car that can detect obstacles using a single ultrasonic sensor and automatically avoid collisions.
 
-Components Details
+# **Components Details**
 
- Arduino UNO – The main microcontroller that runs the code.
+ * Arduino UNO – The main microcontroller that runs the code.
 
- HC-05 Bluetooth Module – Enables wireless control from a mobile app.
+ * HC-05 Bluetooth Module – Enables wireless control from a mobile app.
 
- L298N Motor Driver – Controls the DC motors.
+ * L298N Motor Driver – Controls the DC motors.
 
- 4 DC Motors with Wheels – Drives the car.
+ * 4 DC Motors with Wheels – Drives the car.
 
- Ultrasonic Sensor (HC-SR04) – Detects obstacles in front of the car.
+ * Ultrasonic Sensor (HC-SR04) – Detects obstacles in front of the car.
 
- 2 x 18650 Rechargeable Batteries – Powers the motors and Arduino.
+ * 2 x 18650 Rechargeable Batteries – Powers the motors and Arduino.
 
- Car Chassis – The body/frame to mount components.
+ * Car Chassis – The body/frame to mount components.
 
- Jumper Wires – For making all electrical connections.
+ * Jumper Wires – For making all electrical connections.
 
-Steps to Build
+# **Steps to Build**
 
-Mount the Motors
-Attach all four motors to the chassis using screws or hot glue.
+**Mount the Motors**
+* Attach all four motors to the chassis using screws or hot glue.
+* Wire the Motors to L298N
+  * Left motors → OUT1 and OUT2
+  * Right motors → OUT3 and OUT4
+    
+ **Connect Power**
+   * Battery positive → L298N 12V
+   * Battery ground → L298N GND and Arduino GND
+   * L298N 5V → Arduino 5V (to power Arduino from motor driver)
+     
+ **Connect Control Pins**
+   * ENA (Pin 9), IN1 (Pin 2), IN2 (Pin 3), IN3 (Pin 4), IN4 (Pin 5), ENB (Pin 6) - Arduino digital pins
 
-Wire the Motors to L298N
+**Ultrasonic Sensor Wiring**
 
-Left motors → OUT1 and OUT2
+    *  VCC → 5V
+    *  GND → GND
+    *  Trig → Arduino pin 10
+    *  Echo → Arduino pin 11
 
-Right motors → OUT3 and OUT4
+**Bluetooth Module Wiring**
 
-Connect Power
+    * VCC → 5V
+    * GND → GND
+    * TX → Arduino pin 7
+    * RX → Arduino pin 8
 
-Battery positive → L298N 12V
+**Install Bluetooth RC Controller App**
 
-Battery ground → L298N GND and Arduino GND
+  Download a Bluetooth RC car controller app from the Play Store and pair it with your HC-05.
 
-L298N 5V → Arduino 5V (to power Arduino from motor driver)
-
-Connect Control Pins
-ENA (Pin 9), IN1 (Pin 2), IN2 (Pin 3), IN3 (Pin 4), IN4 (Pin 5), ENB (Pin 6) - Arduino digital pins
-
-Ultrasonic Sensor Wiring
-
-VCC → 5V
-
-GND → GND
-
-Trig → Arduino pin 10
-
-Echo → Arduino pin 11
-
-Bluetooth Module Wiring
-
-VCC → 5V
-
-GND → GND
-
-TX → Arduino pin 7
-RX → Arduino pin 8
-
-Install Bluetooth RC Controller App
-Download a Bluetooth RC car controller app from the Play Store and pair it with your HC-05.
-
-Circuit Diagram
+# **Circuit Diagram**
 <img width="1536" height="1024" alt="rc car circuit diagram" src="https://github.com/user-attachments/assets/1328c931-a8be-4a20-b112-f393fcac1151" />
 
-How It Works
+# **How It Works**
 
 The HC-05 module receives commands from the mobile app (Forward, Back, Left, Right, Stop).
 
@@ -75,7 +65,7 @@ The Arduino reads the ultrasonic sensor before moving forward. If the distance i
 
 The L298N motor driver controls the motors based on the Arduino's signals.
 
-Code
+# **Code**
 ```
 #include <SoftwareSerial.h>
 SoftwareSerial BT(7, 8);  // HC-05 TX to 7, RX to 8
@@ -184,7 +174,7 @@ void stopCar() {
     digitalWrite(IN4, LOW);
 }
 ```
-Pictures:
+# **Pictures**
 
 
 ![rc car circuit](https://github.com/user-attachments/assets/d1f8a0c5-94fe-431e-8950-cc43af407d16)
@@ -194,9 +184,9 @@ Pictures:
 
 
 
-Author
+# **Author**
 
-Javeria Nadeem
+**Javeria Nadeem**
 
-LinkedIn
+**LinkedIn**
 www.linkedin.com/in/javeria-nadeem-1a9149361
