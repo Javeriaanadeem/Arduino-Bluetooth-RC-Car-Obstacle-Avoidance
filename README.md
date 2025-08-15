@@ -184,7 +184,14 @@ void stopCar() {
     digitalWrite(IN4, LOW);
 }
 ```
-Pictures and Videos:
+Pictures:
+
+
+![rc car circuit](https://github.com/user-attachments/assets/d1f8a0c5-94fe-431e-8950-cc43af407d16)
+![rc car](https://github.com/user-attachments/assets/30a85808-2e91-4835-8354-41c1621a84c7)
+
+
+
 
 
 Author
